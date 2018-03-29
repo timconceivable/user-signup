@@ -21,10 +21,10 @@ def validate_form():
     email_error = ""
 
     #validate username
+    special = " _-+=!/\|@#$%^&*(){}[]~`';:><,.?" + '"'
     if username == "":
         username_error = "Please enter a Username"
     else:
-        special = " !@#$%^&*(){}[]~`';:><,.?" + '"'
         for char in username:
             if char in special:
                 username_error = "Usernames cannot contain spaces or special characters"
@@ -49,9 +49,19 @@ def validate_form():
     
     #validate email
     if email != "":
-        if email.count("@", 1, -4) != 1 or email.count(".", -4, -2) != 1 or " " in email:
+        if (email.count("@", 1, -4) != 1 or email.count(".", -5, -2) != 1 
+                or " " in email or len(email) > 254):
             email_error = "Please enter a valid email address"
-
+        else:
+            local,domain = email.rsplit("@",1)
+            for char in local:
+                if char not in ".-_" and char in special:
+                    email_error = "You have used an invalid character (ie.*!?#$%^&)"
+                    break
+            for char in domain:
+                if char not in ".-_" and char in special:
+                    email_error = "You have used an invalid character (ie.*!?#$%^&)"
+                    break
     if username_error == "" and password_error == "" and veripass_error == "" and email_error == "":
         return redirect("/success?username?email", code=307)
     
