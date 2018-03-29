@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <style>
+        body { 
+            font-size: 1rem;
+            font-family: sans-serif;
+            background-color: lightgray;
+            width: 60%;
+            min-width: 20rem;
+            margin: auto;
+        }
+        div {
+            padding: 0 2rem;
+        }
+        h1 { 
+            background-color: slategray;
+            color: orange; 
+            font-size: 3rem;
+            font-weight: 900;
+            font-style: oblique;
+            padding: 1rem;
+            margin: .5rem 0 1rem;
+        }
+        form, table, tbody, tr {
+            padding: 0;
+            margin: 0;
+        }
+        td {
+            padding: .2rem;
+            margin: 0;
+        }
+        .error { 
+            color: red; 
+            font-size: .8rem;
+        }
+        .confirm { 
+            color: lime; 
+            font-size: .8rem;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

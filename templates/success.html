@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1>{{title}}</h1>
+<div>
+    <h2>Welcome, {{username}}!</h2>
+    <p>You have successfully registered!<br>
+    {% if email != "" %}
+        We have sent a confirmation email to {{email}}
+    </p>
+    {% endif %}
+</div>
+
+{% endblock %}
