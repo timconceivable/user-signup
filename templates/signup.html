@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block content %}
 <h1>{{title}}</h1>
 <form method='POST'>
@@ -8,14 +9,14 @@
             <tr>
                 <td> <label for="username">Username </label> </td>
                 <td>
-                    <input name="username" type="text" value='{{username}}' />
+                    <input name="username" type="text" value="{{username}}" />
                     <span class="error">{{username_error}}</span>
                 </td>
             </tr>
             <tr>
                 <td> <label for="password">Password </label> </td>
                 <td>
-                    <input name="password" type="password" value='{{password}}' />
+                    <input name="password" type="password" />
                     <span class="error">{{password_error}}</span>
                 </td>
             </tr>
@@ -29,7 +30,7 @@
             <tr>
                 <td> <label for="email">Email (optional)  </label> </td>
                 <td>
-                    <input name="email" type="text" value='{{email}}' />
+                    <input name="email" type="text" value="{{email}}" />
                     <span class="error">{{email_error}}</span>
                 </td>
             </tr>
