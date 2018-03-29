@@ -49,7 +49,7 @@ def validate_form():
     
     #validate email
     if email != "":
-        if (email.count("@", 1, -4) != 1 or email.count(".", -5, -2) != 1 
+        if (email.count("@", 1, -4) != 1 or email.count(".") > 0 
                 or " " in email or len(email) > 254):
             email_error = "Please enter a valid email address"
         else:
