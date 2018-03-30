@@ -49,7 +49,7 @@ def validate_form():
     
     #validate email
     if email != "":
-        if (email.count("@", 1, -4) != 1 or email.count(".") > 0 
+        if (email.count("@", 1, -4) != 1 or email.count(".") < 1 
                 or " " in email or len(email) > 254):
             email_error = "Please enter a valid email address"
         else:
@@ -62,6 +62,13 @@ def validate_form():
                 if char not in ".-_" and char in special:
                     email_error = "You have used an invalid character (ie.*!?#$%^&)"
                     break
+                if domain.count(".") != 1:
+                    email_error = "Please enter a valid email address"
+                    break
+            hldomain = domain.rsplit(".",1)
+            if len(hldomain) > 1:
+                if len(hldomain[1]) < 2:
+                    email_error = "Please enter a valid email address"
     if username_error == "" and password_error == "" and veripass_error == "" and email_error == "":
         return redirect("/success?username?email", code=307)
     
